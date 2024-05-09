@@ -6,13 +6,13 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 19:51:20 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/09 20:03:36 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/09 21:26:31 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cntdigits(int nbr)
+int	ft_cntdigits(long nbr)
 {
 	int	digits;
 

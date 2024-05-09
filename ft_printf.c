@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/09 20:52:59 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/09 21:27:47 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	print_arg(const char *s, va_list args)
 int	main(void)
 {
 	int	chars;
-	char *test = "aa%saa%u";
+	char *test = "aa%saa%d";
 	chars = ft_printf(test, "**", -8);
 	printf("\nchars: %d\n", chars);
 	printf("\n\n");

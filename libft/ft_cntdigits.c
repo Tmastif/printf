@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_cntdigits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilazar <ilazar@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 00:03:54 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/09 00:05:16 by ilazar           ###   ########.fr       */
+/*   Created: 2024/05/09 19:51:20 by ilazar            #+#    #+#             */
+/*   Updated: 2024/05/09 20:03:36 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_cntdigits(int nbr)
 {
-	write(1, &c, 1);
+	int	digits;
+
+	if (nbr == 0)
+		return (1);
+	digits = 0;
+	while (nbr != 0)
+	{
+		nbr = nbr / 10;
+		digits++;
+	}
+	return (digits);
 }

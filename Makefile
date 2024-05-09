@@ -12,13 +12,13 @@
 
 NAME := libftprintf.a
 
-SRCS := 
+SRCS := $(wildcard *.c)
 	
 OBJS := $(SRCS:%.c=%.o)
 
 LIBFT_DIR := libft
 
-INC_DIR := .
+INC_DIR := includes
 
 HEADER := -I$(INC_DIR)
 

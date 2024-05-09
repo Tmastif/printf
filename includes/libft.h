@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 13:03:08 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/02 19:47:40 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/09 19:55:15 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int	ft_cntdigits(int nbr);
 
 #endif

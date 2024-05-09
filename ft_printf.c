@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilazar <ilazar@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/09 00:56:14 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/09 20:52:59 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdio.h>
 #include <unistd.h>
-
-void	ft_putchar(char c);
-int	print_arg(const char *s, va_list args);
 
 int	ft_printf(const char *s, ...)
 {
@@ -38,7 +36,7 @@ int	ft_printf(const char *s, ...)
 		}
 		else
 		{
-			ft_putchar(*s);
+			ft_putchar_fd(*s, 1);
 			s++;
 			count_chars++;
 		}
@@ -51,25 +49,32 @@ int	print_arg(const char *s, va_list args)
 {
 	unsigned int	count_chars;
 
+	count_chars = 0;
 	printf("#");
 	if (*s == 's')
-		count_chars = print_str(
-		char *str = va_arg(args, char *);
-		printf("%s", str);
-	}
-	else if (*s == 'd')
-	{
-		int nbr = va_arg(args, int);
-		printf("%d", nbr);
-	}
-	return 0;
+		count_chars = print_str(args);
+	else if (*s == 'd' || *s == 'i')
+		count_chars = print_int(args);
+	//else if (*s == 'p')
+	//	count_chars = print_ptr(args);
+	else if (*s == 'c')
+		count_chars = print_char(*s);
+	else if (*s == '%')
+		count_chars = print_precent();
+	else if (*s == 'u')
+		count_chars = print_unsigned(args);
+	return (count_chars);
 }
 
 int	main(void)
 {
-	char *test = "aaa%sbbb%d";
-	ft_printf(test, "printed", 3);
-
+	int	chars;
+	char *test = "aa%saa%u";
+	chars = ft_printf(test, "**", -8);
+	printf("\nchars: %d\n", chars);
+	printf("\n\n");
+	chars = printf("aa%saa%u", "**", -8);
+	printf("\nchars: %d\n", chars);
 	return 0;
 }
 

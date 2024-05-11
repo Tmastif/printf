@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:53:41 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/10 19:08:38 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/11 09:49:13 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,10 @@ static int	recurs_dectohex(unsigned long long int dec, char x)
 	int	count;
 	int	reminder;
 
-	count = 0; 
 	if (dec == 0)
 		return (0);
 	reminder = dec % 16;
 	count = recurs_dectohex(dec / 16, x);
-	count++;
 	if (reminder <= 9)
 		ft_putnbr_fd(reminder, 1);
 	else
@@ -70,5 +68,5 @@ static int	recurs_dectohex(unsigned long long int dec, char x)
 		else
 			ft_putchar_fd(reminder + 55, 1);
 	}
-	return (count);
+	return (count + 1);
 }

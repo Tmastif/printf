@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/10 19:09:33 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/11 09:55:23 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%')
 		{
-			s++;
 			//if *s == special extra
 			//special extra function
 			//s++;
-			count_chars += print_arg(s, args);
+			
+			count_chars += print_arg(*++s, args);
 			s++;
 		}
 		else
@@ -44,44 +44,42 @@ int	ft_printf(const char *s, ...)
 	return (count_chars);
 }
 
-int	print_arg(const char *s, va_list args)
+int	print_arg(char c, va_list args)
 {
 	unsigned int	count_chars;
 
 	count_chars = 0;
-	if (*s == 's')
+	if (c == 's')
 		count_chars = print_str(args);
-	else if (*s == 'd' || *s == 'i')
+	else if (c == 'd' || c == 'i')
 		count_chars = print_int(args);
-	else if (*s == 'c')
-		count_chars = print_char(*s);
-	else if (*s == '%')
+	else if (c == 'c')
+		count_chars = print_char(c);
+	else if (c == '%')
 		count_chars = print_precent();
-	else if (*s == 'u')
+	else if (c == 'u')
 		count_chars = print_unsigned(args);
-	else if (*s == 'p')
-		count_chars = getvar_ptrhex(args, 'p');
-	else if (*s == 'x')
-		count_chars = getvar_ptrhex(args, 'x');
-	else if (*s == 'X')
-		count_chars = getvar_ptrhex(args, 'X');
+	else if (c == 'p' || c == 'x' || c == 'X')
+		count_chars = getvar_ptrhex(args, c);
 	return (count_chars);
 }
-
+/*
 int	main(void)
 {
 	int	chars;
-	char *test = "aaaa%x";
+	int	a;
+	char *test = "abc%x%p";
 	
 	//mine
-	chars = ft_printf(test, 0);
+	chars = ft_printf(test, 933, &a);
 	printf("\nchars: %d\n", chars);
 
 	printf("\n");
 
 	//original
-	chars = printf(test, 0);
+	chars = printf(test, 933, &a);
 	printf("\nchars: %d\n", chars);
-	return 0;
-}
 
+	printf("\n%d", a);
+	return 0;
+}*/

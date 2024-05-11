@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 18:59:34 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/10 19:02:36 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/10 21:12:43 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *s, ...);
-int	print_arg(const char *s, va_list args);
+int	print_arg(char c, va_list args);
 int	print_str(va_list args);
 int	print_int(va_list args);
 int	print_char(char c);

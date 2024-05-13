@@ -6,12 +6,13 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:53:41 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/11 09:49:13 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/13 15:18:43 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+#include <stdio.h>
 
 static int	recurs_dectohex(unsigned long long int dec, char x);
 static int	print_ptrhex(unsigned long long int ptrdec, char x);
@@ -24,10 +25,14 @@ int	getvar_ptrhex(va_list args, char x)
 	dec = va_arg(args, unsigned long long int);
 	if (x == 'p')
 		count_chars = print_ptrhex(dec, 'p');
-	else if (x == 'x')
-		count_chars = print_ptrhex(dec, 'x');
 	else
-		count_chars = print_ptrhex(dec, 'X');
+	{
+		dec = (unsigned int) dec;
+		if (x == 'x')
+			count_chars = print_ptrhex(dec, 'x');
+		else
+			count_chars = print_ptrhex(dec, 'X');
+	}
 	return (count_chars);
 }
 
@@ -38,6 +43,11 @@ static int	print_ptrhex(unsigned long long int dec, char x)
 	count_chars = 0;
 	if (x == 'p')
 	{
+		if (dec == 0)
+		{
+			ft_putstr_fd("(nil)", 1);
+			return (5);
+		}
 		ft_putstr_fd("0x", 1);
 		count_chars = 2;
 	}

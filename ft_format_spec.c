@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:53:41 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/10 19:08:31 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/13 15:55:38 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int	print_str(va_list args)
 	char			*str;
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(str, 1);
 	count_chars = ft_strlen(str);
 	return (count_chars);
@@ -37,8 +42,11 @@ int	print_int(va_list args)
 	return (count_chars);
 }
 
-int	print_char(char c)
+int	print_char(va_list args)
 {
+	char	c;
+
+	c = va_arg(args, int);
 	ft_putchar_fd(c, 1);
 	return (1);
 }

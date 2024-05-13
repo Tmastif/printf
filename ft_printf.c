@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/11 09:55:23 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/13 15:58:52 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	ft_printf(const char *s, ...)
 			//if *s == special extra
 			//special extra function
 			//s++;
-			
 			count_chars += print_arg(*++s, args);
 			s++;
 		}
@@ -54,7 +53,7 @@ int	print_arg(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		count_chars = print_int(args);
 	else if (c == 'c')
-		count_chars = print_char(c);
+		count_chars = print_char(args);
 	else if (c == '%')
 		count_chars = print_precent();
 	else if (c == 'u')
@@ -63,23 +62,25 @@ int	print_arg(char c, va_list args)
 		count_chars = getvar_ptrhex(args, c);
 	return (count_chars);
 }
+
+#include <limits.h>
 /*
 int	main(void)
 {
 	int	chars;
-	int	a;
-	char *test = "abc%x%p";
+	//int	a;
+	char *test = "NULL %s NULL";
 	
 	//mine
-	chars = ft_printf(test, 933, &a);
+	chars = ft_printf(test, NULL);
 	printf("\nchars: %d\n", chars);
 
 	printf("\n");
 
 	//original
-	chars = printf(test, 933, &a);
+	chars = printf("NULL %s NULL", "");
 	printf("\nchars: %d\n", chars);
 
-	printf("\n%d", a);
+	//printf("\n%d", a);
 	return 0;
 }*/

@@ -6,13 +6,12 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/13 15:58:52 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/17 16:35:26 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdio.h>
 #include <unistd.h>
 
 int	ft_printf(const char *s, ...)
@@ -26,9 +25,6 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%')
 		{
-			//if *s == special extra
-			//special extra function
-			//s++;
 			count_chars += print_arg(*++s, args);
 			s++;
 		}
@@ -62,9 +58,9 @@ int	print_arg(char c, va_list args)
 		count_chars = getvar_ptrhex(args, c);
 	return (count_chars);
 }
-
-#include <limits.h>
 /*
+#include <stdio.h>
+#include <limits.h>
 int	main(void)
 {
 	int	chars;

@@ -12,7 +12,7 @@
 
 NAME := libftprintf.a
 
-SRCS := $(wildcard *.c)
+SRCS := ft_cntdigits.c ft_format_ptrhex.c ft_format_spec.c ft_printf.c
 	
 OBJS := $(SRCS:%.c=%.o)
 
@@ -25,8 +25,6 @@ HEADER := -I$(INC_DIR)
 CC := cc
 
 FLAGS := -Wall -Werror -Wextra
-
-
 
 
 all: $(NAME)

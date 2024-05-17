@@ -6,7 +6,7 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 18:59:34 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/13 13:30:10 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/17 16:36:24 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	print_char(va_list args);
 int	print_precent(void);
 int	print_unsigned(va_list args);
 int	getvar_ptrhex(va_list args, char x);
+int	ft_cntdigits(long nbr);
 
 #endif

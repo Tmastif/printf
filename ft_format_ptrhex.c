@@ -6,13 +6,12 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:53:41 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/13 15:18:43 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/17 16:49:43 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdio.h>
 
 static int	recurs_dectohex(unsigned long long int dec, char x);
 static int	print_ptrhex(unsigned long long int ptrdec, char x);
@@ -51,7 +50,7 @@ static int	print_ptrhex(unsigned long long int dec, char x)
 		ft_putstr_fd("0x", 1);
 		count_chars = 2;
 	}
-	if (dec == 0)
+	else if (dec == 0)
 	{
 		ft_putnbr_fd(0, 1);
 		return (count_chars + 1);

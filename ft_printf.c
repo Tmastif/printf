@@ -6,13 +6,12 @@
 /*   By: ilazar <ilazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:08:27 by ilazar            #+#    #+#             */
-/*   Updated: 2024/05/17 16:35:26 by ilazar           ###   ########.fr       */
+/*   Updated: 2024/05/17 16:51:24 by ilazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-#include <unistd.h>
 
 int	ft_printf(const char *s, ...)
 {

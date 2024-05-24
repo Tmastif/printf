@@ -1,0 +1,1 @@
+cc *.c -Iincludes -L. -lftprintf

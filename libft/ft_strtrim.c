@@ -37,7 +37,7 @@ static char	*trim(const char *s1, unsigned int start, unsigned int trim_len)
 	char			*trimmed;
 	unsigned int	i;
 
-	trimmed = (char *) malloc(sizeof(char) * trim_len + 1);
+	trimmed = (char *) malloc(sizeof(char) * (trim_len + 1));
 	if (trimmed == NULL)
 		return (NULL);
 	i = 0;
